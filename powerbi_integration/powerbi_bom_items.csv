@@ -1,0 +1,24 @@
+BOM Item ID,Activity ID,Item Name,Category,Unit,Planned Qty,Planned Rate,Planned Amount,Executed Qty,Executed Amount,poWOIssued
+BOM-01-M1,ACT-01,Diesel Fuel,Material,Litres,2000,95,190000,2000,186000,2000
+BOM-01-L1,ACT-01,Excavator Operator,Labour,Hours,120,350,42000,120,42000,120
+BOM-01-L2,ACT-01,Unskilled Labor,Labour,Hours,200,150,30000,210,31500,210
+BOM-01-E1,ACT-01,Hydraulic Excavator,Equipment,Days,10,3800,38000,10,38000,10
+BOM-02-M1,ACT-02,Cement OPC 53 Grade,Material,Bags,1100,420,462000,1100,467500,1100
+BOM-02-M2,ACT-02,River Sand,Material,Brass,80,6500,520000,80,512000,80
+BOM-02-M3,ACT-02,Reinforcement Steel,Material,Tons,18,62000,1116000,18,1134000,18
+BOM-02-L1,ACT-02,Concrete Mason,Labour,Days,150,700,105000,150,105000,150
+BOM-02-L2,ACT-02,Helper Crew,Labour,Days,300,400,120000,290,116000,290
+BOM-02-E1,ACT-02,Concrete Mixer & Chute,Equipment,Days,15,2500,37500,15,37500,15
+BOM-02-E2,ACT-02,Concrete Vibrator,Equipment,Days,15,633.33,9500,15,9000,15
+BOM-03-M1,ACT-03,Ready-Mix Concrete M25,Material,Cu.M,400,6500,2600000,200,1320000,200
+BOM-03-M2,ACT-03,TMT Steel Rebars,Material,Tons,28,65000,1820000,15,975000,15
+BOM-03-L1,ACT-03,Carpenter / Shuttering crew,Labour,Days,200,800,160000,100,80000,100
+BOM-03-L2,ACT-03,Steel Bar Bender & Binder,Labour,Days,150,750,112500,80,60000,80
+BOM-03-E1,ACT-03,Tower Crane Rental,Equipment,Days,30,3000,90000,15,45000,15
+BOM-03-E2,ACT-03,Shuttering Scaffolding Set,Equipment,Days,30,750,22500,15,11250,15
+BOM-04-M1,ACT-04,Clay Bricks,Material,Nos,75000,12,900000,0,0,0
+BOM-04-M2,ACT-04,PPC Cement,Material,Bags,450,390,175500,0,0,0
+BOM-04-M3,ACT-04,Fine Plaster Sand,Material,Brass,60,6000,360000,0,0,0
+BOM-04-L1,ACT-04,Mason Crew,Labour,Days,220,750,165000,0,0,0
+BOM-04-L2,ACT-04,Mason Helpers,Labour,Days,440,400,176000,0,0,0
+BOM-04-E1,ACT-04,Site Wheelbarrows,Equipment,Units,4,5875,23500,0,0,0

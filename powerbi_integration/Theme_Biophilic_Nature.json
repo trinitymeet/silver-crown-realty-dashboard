@@ -1,0 +1,48 @@
+{
+  "name": "Biophilic Architecture Horizon",
+  "dataColors": [
+    "#2D6A4F",
+    "#C05A46",
+    "#D38E70",
+    "#0E1F16",
+    "#1E382A",
+    "#64748B",
+    "#4f46e5",
+    "#10b981"
+  ],
+  "background": "#FAF9F6",
+  "foreground": "#0E1F16",
+  "tableAccent": "#2D6A4F",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#E6EDE9" } },
+            "width": 1
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#000000" } },
+            "transparency": 95,
+            "preset": "Custom",
+            "size": 4,
+            "blur": 8,
+            "angle": 135,
+            "distance": 2
+          }
+        ]
+      }
+    }
+  }
+}

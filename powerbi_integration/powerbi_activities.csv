@@ -1,0 +1,11 @@
+Activity ID,Activity Name,Unit,Planned Qty,Planned Rate,Budget (BAC),Physical Progress %,Start Month Index,Duration (Months)
+ACT-01,Site Clearing & Excavation,Cu.M,1200,250,300000,100,1,1
+ACT-02,Foundation RCC Work,Cu.M,250,9480,2370000,100,1,2
+ACT-03,RCC Columns & Slabs (Superstructure),Cu.M,400,12012.5,4805000,50,2,2
+ACT-04,Brick Masonry Work,Sq.M,1500,1200,1800000,0,3,2
+ACT-05,Electrical Conduit & Wiring (MEP),R.M,2200,220,484000,0,4,1
+ACT-06,Plumbing & Drainage Piping (MEP),R.M,1100,350,385000,0,4,2
+ACT-07,Internal Plastering Work,Sq.M,3500,380,1330000,0,4,2
+ACT-08,Flooring & Wall Tiling,Sq.M,800,2100,1680000,0,5,1
+ACT-09,Chemical Waterproofing (Wet Areas),Sq.M,600,550,330000,0,5,1
+ACT-10,Painting & Finishing,Sq.M,4200,280,1176000,0,5,2

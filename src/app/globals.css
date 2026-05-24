@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #091B11;
+  --color-gold: #D38E70;
+  --color-teal: #2D6A4F;
+  --color-charcoal: #12271C;
+  --color-ivory: #FFFFF0;
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+
+  --animate-slide: slide 30s linear infinite;
+  --animate-pulse-intense: pulse-intense 1s ease-in-out infinite;
+  --animate-flash: flash-photo 0.3s ease-out;
+  
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes pulse-intense {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.85;
+      transform: scale(0.98);
+    }
+  }
+
+  @keyframes flash-photo {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+}
+
+body {
+  background-color: var(--color-navy);
+  color: var(--color-ivory);
+  overflow-x: hidden;
+}
+
+.glass-panel {
+  background: rgba(26, 31, 44, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.trust-border { 
+  border-left: 3px solid var(--color-gold); 
+}
+
+/* Elegant Hover Physics */
+.levitate-card { 
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); 
+}
+.levitate-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 15px 35px -5px rgba(212, 175, 55, 0.15);
+}
+
+/* Ambient Background */
+.ambient-glow {
+  position: absolute; 
+  width: 600px; 
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,59,70,0.4) 0%, rgba(11,19,43,0) 70%);
+  border-radius: 50%; 
+  z-index: -1; 
+  filter: blur(40px);
+}
+
+.carousel-track:hover { 
+  animation-play-state: paused; 
+}
+
+.mask-edge {
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}

@@ -1,0 +1,18 @@
+Transaction ID,Type,Activity ID,BOM Item ID,Category,Quantity,Rate,Amount,Party Name,Date,Month
+TXN-PO-001,PO,ACT-01,BOM-01-M1,Material,2000,93,186000,Bharat Petroleum Corp.,2026-03-05,Mar
+TXN-WO-001,WO,ACT-01,BOM-01-L1,Labour,120,350,42000,Super Infrastructures,2026-03-08,Mar
+TXN-WO-002,WO,ACT-01,BOM-01-L2,Labour,210,150,31500,Ramu Contractors Ltd.,2026-03-10,Mar
+TXN-WO-003,WO,ACT-01,BOM-01-E1,Equipment,10,3800,38000,EarthMovers rental agency,2026-03-10,Mar
+TXN-PO-002,PO,ACT-02,BOM-02-M1,Material,1100,425,467500,Ultratech Cement Depot,2026-03-20,Mar
+TXN-PO-003,PO,ACT-02,BOM-02-M2,Material,80,6400,512000,Local Quarry Syndicate,2026-03-22,Mar
+TXN-PO-004,PO,ACT-02,BOM-02-M3,Material,18,63000,1134000,Tata Tiscon Steel Yards,2026-03-25,Mar
+TXN-WO-004,WO,ACT-02,BOM-02-L1,Labour,150,700,105000,Ganga Labour Co.,2026-04-02,Apr
+TXN-WO-005,WO,ACT-02,BOM-02-L2,Labour,290,400,116000,Ganga Labour Co.,2026-04-05,Apr
+TXN-WO-006,WO,ACT-02,BOM-02-E1,Equipment,15,2500,37500,EquipRental Mumbai,2026-04-05,Apr
+TXN-WO-007,WO,ACT-02,BOM-02-E2,Equipment,15,600,9000,EquipRental Mumbai,2026-04-05,Apr
+TXN-PO-005,PO,ACT-03,BOM-03-M1,Material,200,6600,1320000,Lafarge RMC Plant,2026-04-28,Apr
+TXN-PO-006,PO,ACT-03,BOM-03-M2,Material,15,65000,975000,JSW Steel Distributor,2026-05-05,May
+TXN-WO-008,WO,ACT-03,BOM-03-L1,Labour,100,800,80000,Om Shuttering Agencies,2026-05-10,May
+TXN-WO-009,WO,ACT-03,BOM-03-L2,Labour,80,750,60000,Mourya Steelbinders,2026-05-12,May
+TXN-WO-010,WO,ACT-03,BOM-03-E1,Equipment,15,3000,45000,Apex Cranes Ltd.,2026-05-15,May
+TXN-WO-011,WO,ACT-03,BOM-03-E2,Equipment,15,750,11250,Om Shuttering Agencies,2026-05-15,May
