@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
-import { logAuthEvent } from '../../../../utils/logger';
+import { logAuthEvent, getAuthMetadata } from '../../../../utils/logger';
 
 export async function POST(request: Request) {
   try {
     const { email } = await request.json();
     if (email) {
-      const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
-      logAuthEvent('LOGOUT', email, ip);
+      const meta = await getAuthMetadata(request);
+      await logAuthEvent('LOGOUT', email, meta);
     }
     return NextResponse.json({ message: 'Session ended successfully' });
   } catch (error: any) {

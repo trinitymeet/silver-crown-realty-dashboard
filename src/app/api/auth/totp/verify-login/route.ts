@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
 import { prisma } from '../../../../../utils/db';
 import { verifyTotp } from '../../../../../utils/totp';
-import { logAuthEvent } from '../../../../../utils/logger';
+import { logAuthEvent, getAuthMetadata } from '../../../../../utils/logger';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_for_dev';
 
@@ -32,8 +32,8 @@ export async function POST(request: Request) {
       }
     });
 
-    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
-    logAuthEvent('LOGIN', email, ip, `(Total logins: ${updatedUser.loginCount})`);
+    const meta = await getAuthMetadata(request);
+    await logAuthEvent('LOGIN', email, { ...meta, details: `(Total logins: ${updatedUser.loginCount})` });
 
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
     
