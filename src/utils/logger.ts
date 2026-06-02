@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-const LOG_DIR = path.join(process.cwd(), 'logs');
+const IS_PROD = process.env.NODE_ENV === 'production' || process.env.VERCEL;
+const LOG_DIR = IS_PROD ? '/tmp' : path.join(process.cwd(), 'logs');
 const LOG_FILE = path.join(LOG_DIR, 'auth.log');
 
 export function logAuthEvent(event: 'REGISTER' | 'LOGIN' | 'LOGOUT', email: string, details?: string) {
