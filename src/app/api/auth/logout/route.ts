@@ -5,7 +5,8 @@ export async function POST(request: Request) {
   try {
     const { email } = await request.json();
     if (email) {
-      logAuthEvent('LOGOUT', email);
+      const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
+      logAuthEvent('LOGOUT', email, ip);
     }
     return NextResponse.json({ message: 'Session ended successfully' });
   } catch (error: any) {

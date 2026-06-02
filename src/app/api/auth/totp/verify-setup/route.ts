@@ -31,8 +31,9 @@ export async function POST(request: Request) {
       }
     });
 
-    logAuthEvent('REGISTER', email);
-    logAuthEvent('LOGIN', email, '(Total logins: 1)');
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
+    logAuthEvent('REGISTER', email, ip);
+    logAuthEvent('LOGIN', email, ip, '(Total logins: 1)');
 
     const token = jwt.sign({ userId: updatedUser.id }, JWT_SECRET, { expiresIn: '7d' });
     

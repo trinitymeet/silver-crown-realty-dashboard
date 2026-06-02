@@ -32,7 +32,8 @@ export async function POST(request: Request) {
       }
     });
 
-    logAuthEvent('LOGIN', email, `(Total logins: ${updatedUser.loginCount})`);
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
+    logAuthEvent('LOGIN', email, ip, `(Total logins: ${updatedUser.loginCount})`);
 
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
     

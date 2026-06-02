@@ -5,10 +5,10 @@ const IS_PROD = process.env.NODE_ENV === 'production' || process.env.VERCEL;
 const LOG_DIR = IS_PROD ? '/tmp' : path.join(process.cwd(), 'logs');
 const LOG_FILE = path.join(LOG_DIR, 'auth.log');
 
-export function logAuthEvent(event: 'REGISTER' | 'LOGIN' | 'LOGOUT', email: string, details?: string) {
+export function logAuthEvent(event: 'REGISTER' | 'LOGIN' | 'LOGOUT', email: string, ip: string, details?: string) {
   const timestamp = new Date().toISOString();
   const detailStr = details ? ` - ${details}` : '';
-  const logLine = `[AUTH_LOG][${timestamp}][${event}] Email: ${email}${detailStr}`;
+  const logLine = `[AUTH_LOG][${timestamp}][${event}] Email: ${email} - IP: ${ip}${detailStr}`;
 
   // 1. Log to console stdout (so it shows up in Vercel/Render function log panels)
   console.log(logLine);
