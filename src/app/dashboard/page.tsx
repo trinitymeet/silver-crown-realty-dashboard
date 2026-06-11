@@ -13,13 +13,8 @@ import {
 import { useErpStore } from '@/hooks/use-erp-store';
 import { ERPActivity, ERPBomItem, Transaction, ResourceMetric } from '@/types';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 
 export default function IndianContractorERP_Level5() {
-  const router = useRouter();
-  const [currentUser, setCurrentUser] = useState<{ username: string; email: string } | null>(null);
-  const [authLoading, setAuthLoading] = useState(true);
-
   const {
     activities,
     transactions,
@@ -66,41 +61,10 @@ export default function IndianContractorERP_Level5() {
   const [termParty, setTermParty] = useState<string>('');
   const [termDate, setTermDate] = useState<string>('2026-05-23');
 
-  // Override browser tab title client-side and validate session
+  // Override browser tab title client-side
   useEffect(() => {
     document.title = "Silver Crown Realty";
-    
-    const token = localStorage.getItem("authToken");
-    const userStr = localStorage.getItem("user");
-    if (!token || !userStr) {
-      router.push("/login");
-    } else {
-      try {
-        setCurrentUser(JSON.parse(userStr));
-        setAuthLoading(false);
-      } catch (e) {
-        localStorage.removeItem("authToken");
-        localStorage.removeItem("user");
-        router.push("/login");
-      }
-    }
-  }, [router]);
-
-  const handleLogout = async () => {
-    try {
-      const email = currentUser?.email || "";
-      await fetch("/api/auth/logout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-    } catch (e) {
-      console.error("Logout log error:", e);
-    }
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("user");
-    router.push("/login");
-  };
+  }, []);
 
   // Trigger auto-dismiss toast
   useEffect(() => {
@@ -332,15 +296,6 @@ export default function IndianContractorERP_Level5() {
     }
   };
 
-  if (authLoading) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen w-screen bg-[#091B11] text-[#FFFFF0] uppercase tracking-wider font-sans">
-        <div className="w-10 h-10 border-4 border-gold border-t-transparent rounded-full animate-spin mb-4" />
-        <p className="text-[10px] text-slate-400 font-bold tracking-widest">Verifying Session...</p>
-      </div>
-    );
-  }
-
   return (
     <div className="flex h-screen w-screen bg-slate-50 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-slate-50 to-slate-100/50 text-slate-800 font-sans overflow-hidden selection:bg-emerald-700/20">
       
@@ -447,22 +402,14 @@ export default function IndianContractorERP_Level5() {
               <RefreshCw size={12} className="text-emerald-700 animate-spin-slow" />
               <span>Reset Data</span>
             </button>
-            <div className="flex items-center gap-3 p-1.5 rounded-lg">
+            <div className="flex items-center gap-3 cursor-pointer group hover:bg-slate-50 p-1.5 rounded-lg transition-colors">
               <div className="text-right hidden md:block">
-                <p className="text-xs font-black text-slate-800 leading-none tracking-wide">{currentUser?.username || "Meet Patel"}</p>
-                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1 lowercase font-sans">{currentUser?.email || "admin@silvercrown.com"}</p>
+                <p className="text-xs font-black text-slate-800 leading-none tracking-wide">Meet Patel</p>
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Admin</p>
               </div>
               <div className="w-9 h-9 rounded-md bg-[#0E1F16] p-[1.5px]">
-                <div className="w-full h-full bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-[5px] flex items-center justify-center text-[11px] font-black text-white shadow-sm">
-                  {(currentUser?.username || "MP").substring(0, 2).toUpperCase()}
-                </div>
+                <div className="w-full h-full bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-[5px] flex items-center justify-center text-[11px] font-black text-white shadow-sm">MP</div>
               </div>
-              <button
-                onClick={handleLogout}
-                className="ml-2 px-3 py-1.5 bg-rose-950/20 hover:bg-rose-900/30 text-rose-600 hover:text-rose-500 rounded border border-rose-900/30 hover:border-rose-900/50 transition-colors text-[10px] font-bold uppercase tracking-wider"
-              >
-                Logout
-              </button>
             </div>
           </div>
         </header>

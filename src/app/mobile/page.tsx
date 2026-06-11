@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 import { useTaskStore } from '@/hooks/use-task-store';
 import { GanttChart } from '@/components/GanttChart';
 import { AgendaView } from '@/components/AgendaView';
@@ -24,10 +23,6 @@ interface FieldNote {
 }
 
 export default function MobileDashboard() {
-  const router = useRouter();
-  const [currentUser, setCurrentUser] = useState<{ username: string; email: string } | null>(null);
-  const [authLoading, setAuthLoading] = useState(true);
-
   const { tasks, isFrozen, freezePlan, updateTask, currentDate } = useTaskStore();
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [activeTab, setActiveTab] = useState<'dashboard' | 'timeline' | 'agenda' | 'notes'>('dashboard');
@@ -327,48 +322,6 @@ export default function MobileDashboard() {
     );
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    const userStr = localStorage.getItem("user");
-    if (!token || !userStr) {
-      router.push("/login");
-    } else {
-      try {
-        setCurrentUser(JSON.parse(userStr));
-        setAuthLoading(false);
-      } catch (e) {
-        localStorage.removeItem("authToken");
-        localStorage.removeItem("user");
-        router.push("/login");
-      }
-    }
-  }, [router]);
-
-  const handleLogout = async () => {
-    try {
-      const email = currentUser?.email || "";
-      await fetch("/api/auth/logout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-    } catch (e) {
-      console.error("Logout log error:", e);
-    }
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("user");
-    router.push("/login");
-  };
-
-  if (authLoading) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-100 font-sans">
-        <div className="w-10 h-10 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mb-4" />
-        <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">Verifying Mobile Session...</p>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-center p-4 md:p-8 select-none font-sans">
       
@@ -433,17 +386,9 @@ export default function MobileDashboard() {
           </div>
           
           <div className="flex items-center gap-2">
-            <div className="text-right hidden sm:block">
-              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">
-                {currentUser?.username || "Foreman"}
-              </span>
-            </div>
-            <button
-              onClick={handleLogout}
-              className="text-[9px] font-extrabold uppercase px-2.5 py-1 rounded bg-rose-950/40 border border-rose-900/45 text-rose-400 hover:text-rose-350 transition-colors"
-            >
-              Logout
-            </button>
+            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider bg-slate-800 border border-slate-700 px-2 py-0.5 rounded-full">
+              Foreman Access
+            </span>
           </div>
         </header>
 
